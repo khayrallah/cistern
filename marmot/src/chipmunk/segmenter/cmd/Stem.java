@@ -20,6 +20,7 @@ public class Stem {
 	private static final String MODEL_FILE = "model-file";
 	private static final String OUTPUT_FILE = "output-file";
 	private static final String MODE = "mode";
+	private static final String FORMAT = "format";
 	
 	public static void main(String[] args) throws JSAPException, IOException {
 		FlaggedOption opt;
@@ -34,7 +35,10 @@ public class Stem {
 		opt = new FlaggedOption(MODEL_FILE).setRequired(true).setLongFlag(MODEL_FILE);
 		jsap.registerParameter(opt);
 		
-		opt = new FlaggedOption(MODE ).setDefault("ROOT_DETECTION").setLongFlag(MODE);
+		opt = new FlaggedOption(MODE).setDefault("ROOT_DETECTION").setLongFlag(MODE);
+		jsap.registerParameter(opt);
+		
+		opt = new FlaggedOption(FORMAT).setDefault("WORD").setLongFlag(FORMAT);
 		jsap.registerParameter(opt);
 
 		SegmenterOptions options = new SegmenterOptions();
@@ -55,13 +59,19 @@ public class Stem {
 		}
 
 		Stemmer.Mode mode = Stemmer.Mode.valueOf(config.getString(MODE).toUpperCase().replace("-", "_"));
+		Stemmer.Format format = Stemmer.Format.valueOf(config.getString(FORMAT).toUpperCase().replace("-", "_"));
 		
 		options.setOptions(config);
 		
 		Segmenter segmenter = FileUtils.loadFromFile(config.getString(MODEL_FILE));
 		SegmentationDataReader reader = new SegmentationDataReader(config.getString(INPUT_FILE), options.getString(SegmenterOptions.LANG), options.getInt(SegmenterOptions.TAG_LEVEL));
 		
-		Stemmer stemmer = new Stemmer(segmenter, mode);
+		if format == "SENTENCE"{
+			Stemmer stemmer = new SentenceStemmer(segmenter, mode);
+		}else{
+			Stemmer stemmer = new Stemmer(segmenter, mode);
+		}
+	
 		
 		stemmer.stemToFile(config.getString(OUTPUT_FILE), reader);		
 	}
