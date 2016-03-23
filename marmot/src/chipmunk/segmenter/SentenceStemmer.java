@@ -13,6 +13,7 @@ public class SentenceeStemmer extends Stemmer{
 		super(segmenter, mode)
 	}
 	
+	@override
 	public void stemToFile(String outfile, SegmentationDataReader words)
 			throws IOException {
 		Writer writer = FileUtils.openFileWriter(outfile);
