@@ -7,7 +7,12 @@ import java.util.Iterator;
 import marmot.util.FileUtils;
 
 public class SentenceeStemmer extends Stemmer{
-
+	
+	
+	public Stemmer(Segmenter segmenter, Mode mode) {
+		super(segmenter, mode)
+	}
+	
 	public void stemToFile(String outfile, SegmentationDataReader words)
 			throws IOException {
 		Writer writer = FileUtils.openFileWriter(outfile);
