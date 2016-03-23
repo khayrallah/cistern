@@ -8,6 +8,7 @@ import chipmunk.segmenter.SegmentationDataReader;
 import chipmunk.segmenter.Segmenter;
 import chipmunk.segmenter.SegmenterOptions;
 import chipmunk.segmenter.Stemmer;
+import chipmunk.segmenter.SentenceStemmer;
 
 import com.martiansoftware.jsap.FlaggedOption;
 import com.martiansoftware.jsap.JSAP;
