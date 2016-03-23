@@ -17,9 +17,13 @@ public class SentenceeStemmer extends Stemmer{
 			throws IOException {
 		Writer writer = FileUtils.openFileWriter(outfile);
 		for (Word word : words) {
+			if (word == "*END*"){
+				writer.write('\n');	
+			}else{
 			String stem = stem(word);
-			writer.write(stem);
-			writer.write(' ');
+				writer.write(stem);
+				writer.write(' ');
+			}
 		}
 		writer.close();
 	}
