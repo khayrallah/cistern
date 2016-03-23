@@ -8,7 +8,7 @@ import marmot.util.FileUtils;
 public class SentenceeStemmer extends Stemmer{
 	
 	
-	public Stemmer(Segmenter segmenter, Mode mode) {
+	public SentenceeStemmer(Segmenter segmenter, Mode mode) {
 		super(segmenter, mode);
 	}
 	
