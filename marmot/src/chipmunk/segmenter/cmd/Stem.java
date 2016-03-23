@@ -59,7 +59,6 @@ public class Stem {
 		}
 
 		Stemmer.Mode mode = Stemmer.Mode.valueOf(config.getString(MODE).toUpperCase().replace("-", "_"));
-		Stemmer.Format format = Stemmer.Format.valueOf(config.getString(FORMAT).toUpperCase().replace("-", "_"));
 		
 		options.setOptions(config);
 		
