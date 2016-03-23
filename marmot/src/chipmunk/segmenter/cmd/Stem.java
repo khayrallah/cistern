@@ -65,7 +65,7 @@ public class Stem {
 		Segmenter segmenter = FileUtils.loadFromFile(config.getString(MODEL_FILE));
 		SegmentationDataReader reader = new SegmentationDataReader(config.getString(INPUT_FILE), options.getString(SegmenterOptions.LANG), options.getInt(SegmenterOptions.TAG_LEVEL));
 		
-		if format == "SENTENCE"{
+		if (format == "SENTENCE"){
 			Stemmer stemmer = new SentenceStemmer(segmenter, mode);
 		}else{
 			Stemmer stemmer = new Stemmer(segmenter, mode);
