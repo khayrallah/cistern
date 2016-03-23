@@ -16,13 +16,19 @@ public class SentenceeStemmer extends Stemmer{
 	public void stemToFile(String outfile, SegmentationDataReader words)
 			throws IOException {
 		Writer writer = FileUtils.openFileWriter(outfile);
+		boolean first = true;
 		for (Word word : words) {
 			if (word == "*END*"){
-				writer.write('\n');	
+				writer.write('\n');
+				first = true;
 			}else{
 			String stem = stem(word);
+				if first{ 
+					first = false;
+				}else{
+					writer.write(' ');
+				}
 				writer.write(stem);
-				writer.write(' ');
 			}
 		}
 		writer.close();
