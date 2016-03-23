@@ -9,7 +9,7 @@ public class SentenceeStemmer extends Stemmer{
 	
 	
 	public Stemmer(Segmenter segmenter, Mode mode) {
-		super(segmenter, mode)
+		super(segmenter, mode);
 	}
 	
 	@Override
@@ -23,7 +23,7 @@ public class SentenceeStemmer extends Stemmer{
 				first = true;
 			}else{
 			String stem = stem(word);
-				if first{ 
+				if (first){ 
 					first = false;
 				}else{
 					writer.write(' ');
