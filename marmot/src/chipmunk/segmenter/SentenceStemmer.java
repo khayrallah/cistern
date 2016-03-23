@@ -5,10 +5,10 @@ import java.io.Writer;
 
 import marmot.util.FileUtils;
 
-public class SentenceeStemmer extends Stemmer{
+public class SentenceStemmer extends Stemmer{
 	
 	
-	public SentenceeStemmer(Segmenter segmenter, Mode mode) {
+	public SentenceStemmer(Segmenter segmenter, Mode mode) {
 		super(segmenter, mode);
 	}
 	
