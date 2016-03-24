@@ -60,7 +60,7 @@ public class Stem {
 		}
 
 		Stemmer.Mode mode = Stemmer.Mode.valueOf(config.getString(MODE).toUpperCase().replace("-", "_"));
-		
+		String format = config.getString(FORMAT).toUpperCase()
 		options.setOptions(config);
 		
 		Segmenter segmenter = FileUtils.loadFromFile(config.getString(MODEL_FILE));
@@ -70,7 +70,7 @@ public class Stem {
 		if (FORMAT.equals("SENTENCE")){
 			stemmer = new SentenceStemmer(segmenter, mode);
 		}else{
-			System.err.println(FORMAT);
+			System.err.println(format);
 			stemmer = new Stemmer(segmenter, mode);
 		}
 	
