@@ -18,7 +18,7 @@ public class SentenceStemmer extends Stemmer{
 		Writer writer = FileUtils.openFileWriter(outfile);
 		boolean first = true;
 		for (Word word : words) {
-			if (word == "*END*"){
+			if (word.getWord().equals("*END*")){
 				writer.write('\n');
 				first = true;
 			}else{
