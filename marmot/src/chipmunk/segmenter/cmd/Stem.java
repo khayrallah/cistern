@@ -70,6 +70,7 @@ public class Stem {
 		if (FORMAT.equals("SENTENCE")){
 			stemmer = new SentenceStemmer(segmenter, mode);
 		}else{
+			System.err.println(FORMAT);
 			stemmer = new Stemmer(segmenter, mode);
 		}
 	
