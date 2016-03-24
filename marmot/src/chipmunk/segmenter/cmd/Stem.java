@@ -20,7 +20,7 @@ public class Stem {
 	private static final String INPUT_FILE = "input-file";
 	private static final String MODEL_FILE = "model-file";
 	private static final String OUTPUT_FILE = "output-file";
-	// private static final String MODE = "mode";
+	private static final String MODE = "mode";
 	private static final String FORMAT = "format";
 	
 	public static void main(String[] args) throws JSAPException, IOException {
