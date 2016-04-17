@@ -19,8 +19,8 @@ public abstract class Segmenter implements Serializable {
 		Writer writer = FileUtils.openFileWriter(outfile);
 		for (Word word : words) {
 			SegmentationReading reading = segment(word);
-			writer.write(word.getWord());
-			writer.write('\t');
+			// writer.write(word.getWord());
+			// writer.write('\t');
 			writer.write(reading.toString());
 			writer.write('\n');
 		}
