@@ -9,7 +9,7 @@ import marmot.util.FileUtils;
 import chipmunk.segmenter.Word;
 
 
-public abstract class SentenceSegmenter implements Serializable {
+public abstract class SentenceSegmenter extends Segmenter {
 
 	private static final long serialVersionUID = 1L;
 
