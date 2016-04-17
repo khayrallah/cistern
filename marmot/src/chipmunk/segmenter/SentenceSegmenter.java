@@ -19,19 +19,18 @@ public abstract class SentenceSegmenter implements Serializable {
 		Writer writer = FileUtils.openFileWriter(outfile);
 		boolean first = true;
 		for (Word word : words) {
-			SegmentationReading reading = segment(word);
-	    	if (word.getWord().equals("*END*")){
-				  writer.write('\n');
-			  	first = true;
-			  	}else{
-			  	  if (first){ 
-					    first = false;
-				    }else{
-					  writer.write(' ');
-				    }
-  		      SegmentationReading reading = segment(word);
-			  	  writer.write(reading.toString());
-			  	}
+		    	if (word.getWord().equals("*END*")){
+				writer.write('\n');
+				first = true;
+			}else{
+				if (first){ 
+					first = false;
+				}else{
+					writer.write(' ');
+				}
+	  		      	SegmentationReading reading = segment(word);
+				writer.write(reading.toString());
+			}
 		}
 		writer.close();
 	}
